@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Demo</title>
+  <style>
+    body {
+      position: relative;
+      min-height: 100vh;
+    }
+
+    #result {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 600px;
+      height: 400px;
+    }
+
+    #result img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+  <script>
+    var currentGif = null;
+
+    function displayGif(word) {
+      var videoGifs = {
+        "deaf": "gif/deaf.gif",
+        "inclusive": "gif/clean.gif",
+        "visual": "gif/visual.gif",
+        "communication": "gif/communication.gif",
+        "education": "gif/intent.gif"
+      }; // Example word and associated GIFs
+
+      if (word in videoGifs) {
+        var gifUrl = videoGifs[word];
+        document.getElementById("result").innerHTML = "<img src='" + gifUrl + "'>";
+        currentGif = gifUrl;
+      } else {
+        document.getElementById("result").innerHTML = "";
+        currentGif = null;
+      }
+    }
+
+    function closeGif() {
+      document.getElementById("result").innerHTML = "";
+      currentGif = null;
+    }
+
+    document.addEventListener("click", function(event) {
+      var clickedElement = event.target;
+      if (!clickedElement.matches("span") && currentGif !== null) {
+        closeGif();
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>Why We Need to Give Attention to Deaf People: Teaching, Communication, and Understanding</h1>
+
+  <body>
+  <p>
+    In our diverse society, it is crucial to give attention to the needs of every individual, including the <span style="background-color: yellow;" onclick="displayGif('deaf')">deaf</span> community. Deaf individuals face unique challenges in communication and understanding, which can be addressed through <span onclick="displayGif('inclusive')">inclusive</span> teaching methods. By recognizing the significance of inclusivity and promoting equal access to <span onclick="displayGif('education')">education</span>, we can empower deaf individuals to thrive and contribute to society.
+  </p>
+  <p>
+    <strong>Teachers as Agents of Change:</strong><br>
+    Teachers play a pivotal role in ensuring that deaf students receive the education they deserve. They must create inclusive learning environments that cater to the specific needs of deaf students. By employing visual aids, adapting teaching strategies, and incorporating sign language, teachers bridge communication gaps and provide equal educational experiences for all students.
+  </p>
+  <p>
+    <strong>The Power of Communication:</strong><br>
+    Deafness is not solely defined by the absence of hearing; it encompasses a distinct culture and communication system. Visual cues, facial expressions, and sign language are vital forms of communication for deaf individuals. Recognizing the value of <span onclick="displayGif('visual')">visual</span> communication breaks down barriers and fosters effective interaction. Teachers who understand and respect these communication methods create inclusive classrooms that promote active participation and engagement.
+  </p>
+  <p>
+    <strong>Unlocking Opportunities through Education:</strong><br>
+    Education is a transformative tool that empowers individuals to reach their full potential. Accessible education equips deaf individuals with the knowledge and skills needed to succeed in various fields, fostering independence and opening doors to fulfilling careers. Ensuring equal access to quality <span onclick="displayGif('education')">education</span> is our collective responsibility and allows deaf individuals to participate fully in society.
+  </p>
+  <p>
+    <strong>Challenging Stereotypes and Fostering Understanding:</strong><br>
+    Giving attention to the deaf community challenges stereotypes and promotes understanding. Embracing diversity and inclusive practices foster empathy and break down barriers. Educating both deaf and hearing individuals about deaf culture, sign language, and the unique challenges faced by the deaf community paves the way for a more inclusive society.
+  </p>
+  <p>
+    <strong>Conclusion:</strong><br>
+    By recognizing the needs of the deaf community, implementing inclusive teaching methods, and promoting effective communication, we empower deaf individuals to thrive and contribute meaningfully to society. Let us work together to break down barriers, challenge stereotypes, and create a world where inclusivity and equal access to education are valued and embraced. By doing so, we foster a society that celebrates diversity and ensures that all individuals have an equal opportunity to succeed.
+  </p>
+  <div id="result"></div>
+</body>
+
+</body>
+</html>
